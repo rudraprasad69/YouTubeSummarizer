@@ -1,0 +1,141 @@
+/* General Dashboard Styling */
+.dashboard {
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 30px;
+  background-color: #f8f9fa;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.dashboard:hover {
+  transform: scale(1.03);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Header Styling */
+.dashboard h1 {
+  font-size: 28px;
+  font-weight: bold;
+  text-align: center;
+  color: #343a40;
+  margin-bottom: 20px;
+}
+
+/* Input Fields */
+.dashboard input,
+.dashboard select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 16px;
+  background-color: #ffffff;
+  transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.dashboard input:focus,
+.dashboard select:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+/* Button Styling */
+.dashboard button {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.dashboard button:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+}
+
+.dashboard button:disabled {
+  background-color: #6c757d;
+  cursor: not-allowed;
+}
+
+/* Summary Section */
+.summary {
+  margin-top: 30px;
+  padding: 20px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.summary h2 {
+  font-size: 22px;
+  color: #343a40;
+  margin-bottom: 10px;
+}
+
+.summary p {
+  font-size: 16px;
+  color: #555;
+  line-height: 1.5;
+}
+
+/* History Section */
+.history {
+  margin-top: 30px;
+}
+
+.history h2 {
+  font-size: 22px;
+  color: #343a40;
+  margin-bottom: 15px;
+}
+
+.history ul {
+  list-style: none;
+  padding: 0;
+}
+
+.history li {
+  margin-bottom: 20px;
+  padding: 15px;
+  background-color: #ffffff;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.history li:hover {
+  transform: scale(1.02);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.history li a {
+  font-weight: bold;
+  color: #007bff;
+  text-decoration: none;
+}
+
+.history li a:hover {
+  text-decoration: underline;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
