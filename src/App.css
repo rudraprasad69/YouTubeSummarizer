@@ -1,39 +1,37 @@
+/* General App Styling */
+.App {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #6fd6ff 10%, #f472b6 100%);
+}
+
 /* General Dashboard Styling */
 .dashboard {
-  max-width: 600px;
-  margin: 50px auto;
-  padding: 30px;
-  background-color: #f8f9fa;
+  width: 90%;
+  max-width: 800px;
+  margin: auto;
+  padding: 20px;
+  background-color: #ffffff;
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease-in-out;
 }
 
 .dashboard:hover {
-  transform: scale(1.03);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
-/* Header Styling */
-.dashboard h1 {
-  font-size: 28px;
-  font-weight: bold;
-  text-align: center;
-  color: #343a40;
-  margin-bottom: 20px;
-}
-
-/* Input Fields */
+/* Input Fields - Enhanced */
 .dashboard input,
 .dashboard select {
-  width: 100%;
-  padding: 10px;
+  padding: 12px 15px;
   margin-bottom: 20px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
+  border: 2px solid #ddd; /* Make border thicker */
+  border-radius: 8px; /* Increase border radius */
   font-size: 16px;
-  background-color: #ffffff;
-  transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  color: #333; /* Darker font color for better readability */
 }
 
 .dashboard input:focus,
@@ -42,37 +40,29 @@
   box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
 }
 
-/* Button Styling */
+/* Button Styling - More Modern Look */
 .dashboard button {
-  width: 100%;
-  padding: 10px;
-  font-size: 16px;
-  font-weight: bold;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
+  background: linear-gradient(to right, #4facfe 0%, #00f2fe 100%);
+  color: #ffffff;
+  padding: 12px 15px;
+  font-size: 18px;
+  border-radius: 8px;
+  box-shadow: none; /* Remove box shadow */
 }
 
 .dashboard button:hover {
-  background-color: #0056b3;
+  background: linear-gradient(to right, #4facfe 0%, #00f2fe 100%);
   transform: translateY(-2px);
-}
-
-.dashboard button:disabled {
-  background-color: #6c757d;
-  cursor: not-allowed;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
 /* Summary Section */
 .summary {
-  margin-top: 30px;
-  padding: 20px;
   background-color: #fff;
-  border: 1px solid #ddd;
-  border-radius: 5px;
+  border: none;
+  padding: 20px;
+  border-radius: 8px;
+  margin-top: 20px;
   animation: fadeIn 0.5s ease-in-out;
 }
 
@@ -138,4 +128,20 @@
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+/* Add visual effects for interactive user engagement */
+*:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.4), 0 0 0 4px rgba(130, 124, 255, 0.5);
+}
+
+*:hover {
+  transition: all 0.3s ease;
+}
+
+/* Additional hover effects for interactivity */
+.dashboard input:hover, .dashboard select:hover, .dashboard button:hover {
+  border-color: #50a1ff;
+  box-shadow: 0 0 8px rgba(80, 160, 255, 0.5);
 }

@@ -12,7 +12,6 @@ const Dashboard = () => {
   const apiKey = process.env.REACT_APP_API_KEY;
 
   useEffect(() => {
-    // Fetch the user's summary history from the database
     const fetchHistory = async () => {
       try {
         const response = await fetch('/api/fetch-history');
@@ -22,13 +21,13 @@ const Dashboard = () => {
         console.error('Error fetching history:', error);
       }
     };
+
     fetchHistory();
   }, []);
 
   const handleSummarize = async () => {
-    setLoading(true); // Show loading spinner
+    setLoading(true);
     try {
-      // Make POST request to start the summarization
       const response = await fetch('https://n8n-dev.subspace.money/webhook/e2b29413-b4dc-4356-8eb0-3769a28be9cc', {
         method: 'POST',
         headers: {
@@ -36,32 +35,26 @@ const Dashboard = () => {
         },
         body: JSON.stringify({ url: youtubeURL, apiKey, model }),
       });
-      
-  
-      // Debug: Log the response
+
       console.log('Start Summarize Response:', response);
-  
+
       if (!response.ok) {
         throw new Error(`Request failed with status ${response.status}`);
       }
-  
-      // Listen for Webhook responses
+
       const eventSource = new EventSource('https://n8n-dev.subspace.money/webhook/e2b29413-b4dc-4356-8eb0-3769a28be9cc');
       eventSource.onmessage = (event) => {
         const summaryData = JSON.parse(event.data).summary;
-        setSummary(summaryData); // Update the summary state
-        storeSummary(summaryData); // Save the summary to history
-        eventSource.close(); // Close the connection
+        setSummary(summaryData);
+        storeSummary(summaryData);
+        eventSource.close();
       };
     } catch (error) {
       console.error('Error during summarization:', error);
     } finally {
-      setLoading(false); // Hide loading spinner
+      setLoading(false);
     }
   };
-  
-  
-  
 
   const storeSummary = async (summary) => {
     try {
@@ -74,26 +67,41 @@ const Dashboard = () => {
       });
       const data = await response.json();
       console.log('Summary stored:', data);
-      setHistory([...history, data]); // Update the history state
+      setHistory([...history, data]);
     } catch (error) {
       console.error('Error storing summary:', error);
     }
   };
 
+  // UI enhancements for modern interaction
+  const inputClasses = "dashboard-input" + (loading ? " loading" : "");
+  const buttonClasses = "dashboard-button" + (loading ? " loading" : "");
+
   return (
     <div className="dashboard">
       <h1>YouTube Video Summarizer</h1>
       <input
+        className={inputClasses}
         type="text"
         placeholder="Enter YouTube URL"
         value={youtubeURL}
         onChange={(e) => setYoutubeURL(e.target.value)}
+        disabled={loading}
       />
-      <select value={model} onChange={(e) => setModel(e.target.value)}>
+      <select
+        className="dashboard-select"
+        value={model}
+        onChange={(e) => setModel(e.target.value)}
+        disabled={loading}
+      >
         <option value="gemini">Gemini</option>
         <option value="other-model">Other Model</option>
       </select>
-      <button onClick={handleSummarize} disabled={loading}>
+      <button
+        className={buttonClasses}
+        onClick={handleSummarize}
+        disabled={loading}
+      >
         {loading ? 'Loading...' : 'Summarize Video'}
       </button>
       {summary && (
@@ -121,5 +129,3 @@ const Dashboard = () => {
 };
 
 export default Dashboard;
-
-
