@@ -1,8 +1,7 @@
 # AI-Powered YouTube Video Summarizer
 
-<p align="center">
-  <img src="path/to/your/summarizer-banner.png" alt="YouTube Summarizer Banner" width="800">
-</p>
+<img width="960" height="418" alt="{D9312558-2729-4496-AA84-B44763220513}" src="https://github.com/user-attachments/assets/a956c426-60af-42da-a0bb-5991d16ac45b" />
+
 
 <p align="center">
   <img src="https://img.shields.io/github/license/rudraprasad69/YouTubeSummarizer" alt="License">
