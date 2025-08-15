@@ -29,7 +29,7 @@ Try the live application here:
 ## 📸 Screenshots
 
 | Home Page                                      | Summary Result                                  |
-| ---------------------------------------------- | ----------------------------------------------- |
+| ---------------------------------------------- | ----------------------------------------------- | 
 | ![Home Page](path/to/homepage_screenshot.png) | ![Summary Result](path/to/summary_screenshot.png) |
 
 *(Action: Add screenshots of your application's interface and a sample result.)*
