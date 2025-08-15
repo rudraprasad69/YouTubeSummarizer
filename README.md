@@ -17,7 +17,7 @@ This project leverages a powerful AI API for natural language processing to extr
 ## 🚀 Live Demo
 
 Try the live application here:
-**[https://your-live-demo-url.com](https://youtube-summary-app.netlify.app/)**
+**(https://youtube-summary-app.netlify.app/)**
 
 ## ✨ Features
 
