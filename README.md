@@ -26,14 +26,6 @@ Try the live application here:
 -   **Responsive Design:** Works seamlessly on both desktop and mobile devices.
 -   **AI-Powered:** Utilizes a state-of-the-art AI model for high-quality text summarization.
 
-## 📸 Screenshots
-
-| Home Page                                      | Summary Result                                  |
-| ---------------------------------------------- | ----------------------------------------------- | 
-| ![Home Page](path/to/homepage_screenshot.png) | ![Summary Result](path/to/summary_screenshot.png) |
-
-*(Action: Add screenshots of your application's interface and a sample result.)*
-
 ## 🛠️ Technologies Used
 
 <p align="left">
