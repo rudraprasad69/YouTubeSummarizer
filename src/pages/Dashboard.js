@@ -33,9 +33,8 @@ async function fetchVideoTitle(videoId) {
  */
 async function callGroq(apiKey, model, prompt) {
   const modelMap = {
-    llama:   'llama-3.3-70b-versatile',
-    mixtral: 'mixtral-8x7b-32768',
-    gemma:   'gemma2-9b-it',
+    llama3_3: 'llama-3.3-70b-versatile',
+    llama3_1: 'llama-3.1-8b-instant',
   };
   const groqModel = modelMap[model] || 'llama-3.3-70b-versatile';
 
@@ -95,7 +94,7 @@ const KEY_STORAGE  = 'groq_api_key';
 
 const Dashboard = () => {
   const [youtubeURL, setYoutubeURL] = useState('');
-  const [model, setModel]           = useState('llama');
+  const [model, setModel]           = useState('llama3_3');
   const [summary, setSummary]       = useState('');
   const [videoTitle, setVideoTitle] = useState('');
   const [loading, setLoading]       = useState(false);
@@ -215,9 +214,8 @@ Base your summary on the title and any knowledge you have about this video or to
           onChange={(e) => setModel(e.target.value)}
           disabled={loading}
         >
-          <option value="llama">Llama 3.3 70B</option>
-          <option value="mixtral">Mixtral 8x7B</option>
-          <option value="gemma">Gemma 2 9B</option>
+          <option value="llama3_3">Llama 3.3 70B</option>
+          <option value="llama3_1">Llama 3.1 8B</option>
         </select>
         <button
           className={`dashboard-button${loading ? ' loading' : ''}`}
