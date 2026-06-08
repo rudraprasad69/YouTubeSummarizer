@@ -101,10 +101,11 @@ const Dashboard = () => {
   const [loading, setLoading]       = useState(false);
   const [error, setError]           = useState('');
   const [history, setHistory]       = useState([]);
-  const [apiKey, setApiKey]         = useState(
-    () => process.env.REACT_APP_GROQ_API_KEY || localStorage.getItem(KEY_STORAGE) || ''
-  );
-  const [showKeyInput, setShowKeyInput] = useState(false);
+  const [apiKey]                    = useState(() => {
+    const envKey = process.env.REACT_APP_GROQ_API_KEY;
+    if (envKey && envKey !== 'your_groq_api_key_here') return envKey;
+    return localStorage.getItem(KEY_STORAGE) || '';
+  });
 
   const hasKey = apiKey.trim().startsWith('gsk_') && apiKey.trim().length > 20;
 
@@ -121,11 +122,6 @@ const Dashboard = () => {
     try { localStorage.setItem(HISTORY_KEY, JSON.stringify(updated)); } catch (_) {}
   };
 
-  const handleSaveKey = (key) => {
-    setApiKey(key);
-    if (key.trim()) localStorage.setItem(KEY_STORAGE, key.trim());
-    else localStorage.removeItem(KEY_STORAGE);
-  };
 
   const handleSummarize = async () => {
     setError(''); setSummary(''); setVideoTitle('');
@@ -134,8 +130,7 @@ const Dashboard = () => {
     const videoId = extractVideoId(youtubeURL.trim());
     if (!videoId) { setError('Invalid YouTube URL.'); return; }
     if (!hasKey) {
-      setError('Please enter your free Groq API key first.');
-      setShowKeyInput(true);
+      setError('API key not configured. Please set the REACT_APP_GROQ_API_KEY environment variable in Netlify.');
       return;
     }
 
@@ -199,37 +194,6 @@ Base your summary on the title and any knowledge you have about this video or to
     <div className="dashboard">
       <h1>YouTube Video Summarizer</h1>
       <p className="subtitle">Paste a YouTube URL and get an AI-powered summary instantly.</p>
-
-      {/* API Key Setup Banner */}
-      {(!hasKey || showKeyInput) && (
-        <div className="setup-banner">
-          <div className="setup-banner-icon" role="img" aria-label="key">🔑</div>
-          <div className="setup-banner-text">
-            <strong>Free Groq API key required</strong> — no credit card, 30-second signup:{' '}
-            <a href="https://console.groq.com/keys" target="_blank" rel="noopener noreferrer">
-              console.groq.com/keys →
-            </a>
-            <br />
-            <span className="key-steps">1. Sign up with email &nbsp;→&nbsp; 2. Click "Create API Key" &nbsp;→&nbsp; 3. Paste below (starts with <code>gsk_</code>)</span>
-            <div className="apikey-row">
-              <input
-                className="apikey-input"
-                type="password"
-                placeholder="gsk_xxxxxxxxxxxxxxxxxxxx"
-                defaultValue={apiKey}
-                onBlur={(e) => handleSaveKey(e.target.value)}
-                onChange={(e) => handleSaveKey(e.target.value)}
-                autoFocus
-              />
-              {hasKey && (
-                <button className="key-save-btn" onClick={() => setShowKeyInput(false)}>
-                  ✓ Saved
-                </button>
-              )}
-            </div>
-          </div>
-        </div>
-      )}
 
 
 
