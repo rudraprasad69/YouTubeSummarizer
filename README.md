@@ -43,6 +43,8 @@ Try the live application here:
   <a href="https://expressjs.com" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/express/express-original-wordmark.svg" alt="express" width="40" height="40"/> </a>
   </p>
 
+<img width="1436" height="2220" alt="diagram (2)" src="https://github.com/user-attachments/assets/aca4f5b0-9b0f-45a4-a3c0-ab83260c2aba" />
+
 
 ## ⚙️ Installation & Setup
 
